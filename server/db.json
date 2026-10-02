@@ -39,6 +39,16 @@
               "id": "as_2",
               "name": "Async Fetch API",
               "score": 85
+            },
+            {
+              "id": "as_1790953616335",
+              "name": "ES5 Fundamentals",
+              "score": 50
+            },
+            {
+              "id": "as_1790953646650",
+              "name": "ES5 Fundamentals",
+              "score": 50
             }
           ],
           "quizzes": [
