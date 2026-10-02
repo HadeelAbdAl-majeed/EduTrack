@@ -11,10 +11,26 @@
 		<input type="text" id="exam-score-input">
 		<label for="exam-name-input">Exam Name:</label>
 		<input type="text" id="exam-name-input">
-		<!-- <label for="exam-id-input">Exam ID:</label>
-		<input type="text" id="exam-id-input"> -->
+		<label for="student-id-input">Student ID:</label>
+		<input type="text" id="student-id-input">
 		<button type="submit" id="add-exam-score-btn">Add Score</button>
 	</form>
-	<script src="./grades.js"></script>
+	<div class="table-container">
+		<table class="exam-table">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>Title</th>
+				<th>Score</th>
+				<th>Actions</th>
+			</tr>
+			</thead>
+			<tbody id="exam-tbody">
+			<!-- Rows will be dynamically injected here -->
+			</tbody>
+		</table>
+	</div>
+
+	<script src="./js/core/grades.js"></script>
 </body>
 </html>

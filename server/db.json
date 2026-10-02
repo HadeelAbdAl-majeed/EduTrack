@@ -27,6 +27,16 @@
               "id": "ex_2",
               "name": "Final Exam",
               "score": 94
+            },
+            {
+              "id": "ex_1790956477122",
+              "name": "html",
+              "score": 90
+            },
+            {
+              "id": "ex_1790959159956",
+              "name": "css",
+              "score": 50
             }
           ],
           "assignments": [
