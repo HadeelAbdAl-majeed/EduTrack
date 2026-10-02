@@ -93,6 +93,7 @@ async function renderTable() {
 						<td>${examCounter++}</td>
 						<td>${exam.name}</td>
 						<td>${exam.score}</td>
+						<td>${student.id}</td>
 						<td class="actions-cell">
 							<button class="btn-icon btn-edit" data-id="${exam.id}" data-student-id="${student.id}">
 								edit
