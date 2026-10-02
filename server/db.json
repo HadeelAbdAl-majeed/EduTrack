@@ -89,6 +89,20 @@
             }
           ]
         }
+      ],
+      "announcements": [
+        {
+          "id": "ann_1790951164679",
+          "title": "project one",
+          "body": "memo",
+          "timestamp": "10/2/2026, 5:26:04 PM"
+        },
+        {
+          "id": "ann_1790951050253",
+          "title": "Quiz 1 Cancellation",
+          "body": "Class is postponed",
+          "timestamp": "10/2/2026, 5:24:10 PM"
+        }
       ]
     }
   ],
