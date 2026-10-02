@@ -6,3 +6,4 @@ logoutBtn.addEventListener("click", function ()
 sessionStorage.removeItem("instructorId");
 location.href = "login.html";
 })
+
