@@ -17,6 +17,7 @@ loginForm.addEventListener("submit", async function (event) {
     const instructor = data.find(instructor => instructor.email === getLoginEmail && instructor.password === getLoginPassword);
     if (instructor) {
        sessionStorage.setItem("instructorId", instructor.id);
+       location.href = "dashboard.html";
        console.log("Login successful");
     
     } else {
