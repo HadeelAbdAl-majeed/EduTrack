@@ -20,7 +20,7 @@
           "exams": [
             {
               "id": "ex_1",
-              "name": "Midterm Exam",
+              "name": "Midterm",
               "score": 88
             },
             {
@@ -34,9 +34,9 @@
               "score": 90
             },
             {
-              "id": "ex_1790959159956",
-              "name": "css",
-              "score": 50
+              "id": "ex_1790960607243",
+              "name": "php",
+              "score": 40
             }
           ],
           "assignments": [

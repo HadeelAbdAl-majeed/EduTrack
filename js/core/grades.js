@@ -67,6 +67,42 @@ async function deleteExam(instructorId, studentId, examId) {
 	}
 }
 
+async function editExam(instructorId, studentId, examId, newName, newScore) {
+	try {
+		// 1. Fetch the instructor data
+		const response = await fetch(`${db}/${instructorId}`);
+		let instructorData = await response.json();
+
+		// 2. Find the student
+		const studentIndex = instructorData.students.findIndex(s => s.id === studentId);
+		if (studentIndex === -1) throw new Error("Student not found");
+
+		// 3. Find the specific exam inside that student's array
+		const examIndex = instructorData.students[studentIndex].exams.findIndex(e => e.id === examId);
+		if (examIndex === -1) throw new Error("Exam not found");
+
+		// 4. Update the properties
+		instructorData.students[studentIndex].exams[examIndex].name = newName;
+		instructorData.students[studentIndex].exams[examIndex].score = Number(newScore);
+
+		// 5. Send PATCH request to update the database
+		const updatedResponse = await fetch(`${db}/${instructorId}`, {
+			method: 'PATCH',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ students: instructorData.students })
+		});
+
+		const updatedData = await updatedResponse.json();
+		console.log('Exam updated successfully:', updatedData);
+
+	} catch (error) {
+		console.error('Error updating exam:', error);
+	}
+}
+
+// Example usage:
+// editExam('inst_01', 'stu_001', 'ex_1', 'Updated Midterm Exam', 95);
+
 // Example usage:
 // deleteExam('inst_01', 'stu_001', 'ex_1');
 
@@ -87,6 +123,7 @@ async function renderTable() {
 				student.exams.forEach(exam => {
 					const tr = document.createElement('tr');
 
+
 					// Note: Added data-student-id to the buttons so your
 					// edit/delete logic knows which student to update
 					tr.innerHTML = `
@@ -94,15 +131,45 @@ async function renderTable() {
 						<td>${exam.name}</td>
 						<td>${exam.score}</td>
 						<td>${student.id}</td>
-						<td class="actions-cell">
-							<button class="btn-icon btn-edit" data-id="${exam.id}" data-student-id="${student.id}">
-								edit
-							</button>
-							<button class="btn-icon btn-delete" data-id="${exam.id}" data-student-id="${student.id}">
-								delete
-							</button>
-						</td>
 					`;
+					// <td class="actions-cell" id='action-btns'>
+					// 		<button class="btn-icon btn-edit" data-id="${exam.id}" data-student-id="${student.id}">
+					// 			edit
+					// 		</button>
+					// 		<button class="btn-icon btn-delete" data-id="${exam.id}" data-student-id="${student.id}">
+					// 			delete
+					// 		</button>
+					// </td>
+					const actionCol = document.createElement('td');
+					// console.log(actionCol);
+					const editBtn = document.createElement('button');
+					const deleteBtn = document.createElement('button');
+
+					editBtn.textContent = 'edit';
+					deleteBtn.textContent = 'delete';
+
+					actionCol.appendChild(editBtn);
+					actionCol.appendChild(deleteBtn);
+
+					editBtn.addEventListener('click', async () => {
+						const newName = prompt("Enter new exam name:", exam.name);
+						const newScore = prompt("Enter new exam score:", exam.score);
+
+						if (newName && newScore !== null) {
+							await editExam(instructorId, student.id, exam.id, newName, newScore);
+							renderTable(); // Re-render to show changes
+						}
+					});
+
+					deleteBtn.addEventListener('click', async () => {
+						const confirmDelete = confirm("Are you sure you want to delete this exam?");
+
+						if (confirmDelete) {
+							await deleteExam(instructorId, student.id, exam.id);
+							renderTable(); // Re-render to show changes
+						}
+					});
+					tr.appendChild(actionCol);
 					examTable.appendChild(tr);
 				});
 
