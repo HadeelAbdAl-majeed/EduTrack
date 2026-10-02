@@ -2,6 +2,8 @@ const form = document.getElementById('exam-form');
 const examTable = document.getElementById('exam-tbody');
 let db = 'http://localhost:3000/instructors';
 let instructorId = 'inst_01';
+const editIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>`;
+const deleteIcon = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>`;
 
 form.addEventListener('submit', async (event) => {
 	// console.log('here');
@@ -145,8 +147,10 @@ async function renderTable() {
 					const editBtn = document.createElement('button');
 					const deleteBtn = document.createElement('button');
 
-					editBtn.textContent = 'edit';
-					deleteBtn.textContent = 'delete';
+					editBtn.innerHTML = editIcon;
+					editBtn.className = 'btn-icon btn-edit';
+					deleteBtn.innerHTML = deleteIcon;
+					deleteBtn.className = 'btn-icon btn-delete';
 
 					actionCol.appendChild(editBtn);
 					actionCol.appendChild(deleteBtn);

@@ -1,0 +1,124 @@
+/* Color Palette */
+:root {
+    --primary: #7a2035;
+    --bg-main: #ffffff;
+    --text-main: #333333;
+    --border-color: #f0ece6;
+    --table-header: #f8f6f4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-main);
+    padding: 40px; /* Temporary padding so it looks nice while you build it standalone */
+}
+
+/* Main wrapper for your specific component */
+.exams-component {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 24px;
+    color: var(--text-main);
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+/* Toolbar Form */
+.toolbar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.toolbar input {
+    padding: 10px 16px;
+    border: 1px solid #e2ddd8;
+    border-radius: 6px;
+    flex: 1;
+    outline: none;
+    font-size: 14px;
+}
+
+.toolbar input:focus {
+    border-color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #5c1827;
+}
+
+/* Table */
+.table-container {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners apply to the header */
+}
+
+.exam-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.exam-table th {
+    background-color: var(--table-header);
+    padding: 16px;
+    font-weight: 600;
+    color: #555;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.exam-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    color: #444;
+    font-size: 13px;
+}
+
+.exam-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Action Buttons */
+.actions-cell {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    border: none;
+    border-radius: 6px;
+    padding: 6px 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+
+.btn-icon:hover { opacity: 0.8; }
+.btn-icon svg { width: 16px; height: 16px; }
+
+.btn-edit { background-color: #f5f0eb; color: #5d4037; }
+.btn-delete { background-color: #ffebe9; color: #d9534f; }
