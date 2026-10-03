@@ -1,98 +1,120 @@
-// login section
+// ============ login section ============
 const loginForm = document.getElementById("loginForm");
 const signupForm = document.getElementById("signupForm");
-if (loginForm)
-{
-const loginEmail = document.getElementById("loginEmail")
-const loginPassword = document.getElementById("loginPassword")
-const loginError = document.getElementById("loginError");
 
+if (loginForm) {
+    const loginEmail = document.getElementById("loginEmail");
+    const loginPassword = document.getElementById("loginPassword");
+    const loginError = document.getElementById("loginError");
 
-loginForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    const getLoginEmail = loginEmail.value;
-    const getLoginPassword = loginPassword.value;
-    const response = await fetch("http://localhost:3000/instructors")
-    const data = await response.json();
-    const instructor = data.find(instructor => instructor.email === getLoginEmail && instructor.password === getLoginPassword);
-    if (instructor) {
-       sessionStorage.setItem("instructorId", instructor.id);
-       location.href = "dashboard.html";
-       console.log("Login successful");
-    
-    } else {
-        loginError.textContent = "Invalid email or password";
-        console.log("Login failed");
-        return;
-    }
-})
+    loginForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const getLoginEmail = loginEmail.value.trim();
+        const getLoginPassword = loginPassword.value.trim();
+
+        try {
+            const response = await fetch("http://localhost:3000/instructors");
+            const data = await response.json();
+
+            const instructor = data.find(
+                (inst) =>
+                    inst.email.toLowerCase() === getLoginEmail.toLowerCase() &&
+                    inst.password === getLoginPassword
+            );
+
+            if (instructor) {
+                sessionStorage.setItem("instructorId", instructor.id);
+                location.href = "dashboard.html";
+                console.log("Login successful");
+            } else {
+                loginError.textContent = "Invalid email or password";
+                console.log("Login failed");
+            }
+        } catch (err) {
+            loginError.textContent = "Server error. Is json-server running?";
+            console.error(err);
+        }
+    });
 }
 
-//end of login section
+// ============ signup section ============
+if (signupForm) {
+    const firstName = document.getElementById("firstName");
+    const lastName = document.getElementById("lastName");
+    const signupEmail = document.getElementById("signupEmail");
+    const signupPassword = document.getElementById("signupPassword");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const signupError = document.getElementById("signupError");
 
-// signup section
-if(signupForm)
-{
+    signupForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
 
-const firstName= document.getElementById("firstName");
-const lastName = document.getElementById("lastName");
-const signupEmail = document.getElementById("signupEmail");
-const signupPassword = document.getElementById("signupPassword");
-const confirmPassword = document.getElementById("confirmPassword");
-const signupError = document.getElementById("signupError");
+        const getFirstName = firstName.value.trim();
+        const getLastName = lastName.value.trim();
+        const getEmail = signupEmail.value.trim();
+        const getPassword = signupPassword.value;
+        const getConfirmPassword = confirmPassword.value;
 
-signupForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    const getFirstName = firstName.value;
-    const getLastName = lastName.value;
-    const getEmail = signupEmail.value;
-    const getPassword = signupPassword.value;
-    const getConfirmPassword = confirmPassword.value;
-    const response= await fetch("http://localhost:3000/instructors")
-    const getData= await response.json();
-    
-    const emailIsFound=getData.find(instructor => instructor.email === getEmail);
-    if (emailIsFound)
-    {
-        signupError.textContent ="email is invalid ";
-        return;
-    }
+        // ---- Validation ----
+        if (getFirstName === "") {
+            signupError.textContent = "First name is empty";
+            return;
+        }
+        if (getLastName === "") {
+            signupError.textContent = "Last name is empty";
+            return;
+        }
+        if (getEmail === "") {
+            signupError.textContent = "Email is empty";
+            return;
+        }
+        if (getPassword === "") {
+            signupError.textContent = "Password is empty";
+            return;
+        }
+        if (getPassword !== getConfirmPassword) {
+            signupError.textContent = "Password and confirm password don't match";
+            return;
+        }
 
+        try {
+            // ---- Check if email already exists ----
+            const response = await fetch("http://localhost:3000/instructors");
+            const getData = await response.json();
 
-if(getPassword=="")
-{signupError.textContent="password is empty"
-    return;
-}
-if(getPassword!=getConfirmPassword)
-{signupError.textContent="password is not a same confirm" 
-    return;
-}
-if(getFirstName=="")
-{signupError.textContent="First name  is empty"
-    return;
-}
-if(getLastName=="")
-{signupError.textContent="Last name  is empty"
-    return;
-}
-if(getEmail=="")
-{signupError.textContent="email is empty"
-    return;
-}
+            const emailIsFound = getData.find(
+                (inst) => inst.email.toLowerCase() === getEmail.toLowerCase()
+            );
+            if (emailIsFound) {
+                signupError.textContent = "Email is already registered";
+                return;
+            }
 
+            // ---- Create new instructor ----
+            const addNewId = await fetch("http://localhost:3000/instructors", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    firstName: getFirstName,
+                    lastName: getLastName,
+                    username: getFirstName,
+                    email: getEmail,
+                    password: getPassword,
+                    students: []
+                })
+            });
 
-const addNewId= await fetch("http://localhost:3000/instructors"
-,{  method:"POST",
-    headers: {
-    "Content-Type": "application/json"},
-    body: JSON.stringify({
-    firstName: getFirstName,
-    lastName: getLastName,
-    email: getEmail,
-    password: getPassword
-})
-
-    })
-})
-    
+            if (addNewId.ok) {
+                const newUser = await addNewId.json();
+                sessionStorage.setItem("instructorId", newUser.id);
+                location.href = "dashboard.html";
+            } else {
+                signupError.textContent = "Failed to create account";
+            }
+        } catch (err) {
+            signupError.textContent = "Server error. Is json-server running?";
+            console.error(err);
+        }
+    });
 }
