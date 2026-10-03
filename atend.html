@@ -6,320 +6,7 @@
     <title>University Portal - Attendance</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <style>
-        :root {
-            --bg-main: #FAF7F2;
-            --sidebar-bg: #FFFFFF;
-            --primary-dark: #581C25;
-            --primary-light: #F9EBEB;
-            --text-main: #2D2D2D;
-            --text-muted: #6B7280;
-            --border-color: #E5E7EB;
-            --card-bg: #FFFFFF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        header {
-            background-color: #FFFFFF;
-            height: 70px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            flex-shrink: 0;
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--primary-dark);
-            font-weight: 700;
-            font-size: 1.15rem;
-        }
-
-        .logo-shield {
-            background-color: var(--primary-dark);
-            color: white;
-            width: 36px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-            font-size: 1.1rem;
-        }
-
-        .menu-toggle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            cursor: pointer;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .user-avatar {
-            width: 38px;
-            height: 38px;
-            background-color: #F3F4F6;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-        }
-
-        .app-container {
-            display: flex;
-            flex: 1;
-            overflow: hidden;
-        }
-
-        aside {
-            width: 260px;
-            background-color: var(--sidebar-bg);
-            border-right: 1px solid var(--border-color);
-            padding: 24px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-
-        .nav-item i {
-            font-size: 1.1rem;
-            width: 20px;
-            text-align: center;
-        }
-
-        .nav-item:hover {
-            background-color: #F9FAFB;
-            color: var(--text-main);
-        }
-
-        .nav-item.active {
-            background-color: var(--primary-dark);
-            color: white;
-        }
-
-        .custom-bullet {
-            width: 16px;
-            height: 16px;
-            border: 1px solid currentColor;
-            border-radius: 3px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-        }
-
-        .nav-item.active .custom-bullet::after {
-            content: "";
-            width: 8px;
-            height: 8px;
-            background-color: white;
-            border-radius: 1px;
-        }
-
-        main {
-            flex: 1;
-            padding: 32px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .page-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .btn-primary {
-            background-color: var(--primary-dark);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.95rem;
-            transition: opacity 0.2s;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-        }
-
-        .controls-bar {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .select-box, .search-box {
-            background: white;
-            border: 1px solid var(--border-color);
-            padding: 10px 16px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-            color: var(--text-main);
-        }
-
-        .select-box {
-            cursor: pointer;
-            min-width: 180px;
-            justify-content: space-between;
-        }
-
-        .search-box {
-            flex: 1;
-            max-width: 320px;
-        }
-
-        .search-box input {
-            border: none;
-            outline: none;
-            width: 100%;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            background: transparent;
-        }
-
-        .btn-outline {
-            background: white;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 500;
-            cursor: pointer;
-            margin-left: auto;
-        }
-
-        .table-container {
-            background: white;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-
-        th {
-            background-color: #F9F6F0;
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 14px 24px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .table-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 24px;
-            background: white;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .pagination {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .page-num {
-            width: 32px;
-            height: 32px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            color: var(--text-muted);
-        }
-
-        .page-num.active {
-            background-color: var(--primary-dark);
-            color: white;
-        }
-
-        .pagination-arrow {
-            cursor: pointer;
-            color: var(--text-muted);
-            padding: 0 4px;
-        }
-
-        .showing-text {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-    </style>
+    <link rel="stylesheet" href="atend.css">
 </head>
 <body>
 
@@ -377,15 +64,14 @@
 
             <div class="controls-bar">
                 <div class="select-box">
-                    <span><i class="fa-regular fa-calendar"></i> 2025-10-15</span>
-                    <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-muted);"></i>
+                    <span><i class="fa-regular fa-calendar"></i> <span id="current-date-display"></span></span>
                 </div>
                 <div class="select-box">
                     <span>CS101</span>
-                    <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--text-muted);"></i>
+                    <i class="fa-solid fa-chevron-down chevron-icon"></i>
                 </div>
                 <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted); font-size: 0.85rem;"></i>
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
                     <input type="text" placeholder="Search student...">
                 </div>
                 <button class="btn-outline">Mark all present</button>
@@ -395,12 +81,12 @@
                 <table>
                     <thead>
                         <tr>
-                            <th style="width: 80px;" class="p-4 text-center">#</th>
-                            <th class="p-4">Student</th>
-                            <th class="p-4 text-center">Attendance</th>
-                            <th class="p-4 text-center">Present</th>
-                            <th class="p-4 text-center">Absent</th>
-                            <th class="p-4 text-center">Late</th>
+                            <th class="col-num">#</th>
+                            <th>Student</th>
+                            <th class="text-center">Attendance</th>
+                            <th class="text-center">Present</th>
+                            <th class="text-center">Absent</th>
+                            <th class="text-center">Late</th>
                         </tr>
                     </thead>
                     <tbody id="student-table-body">

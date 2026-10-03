@@ -65,25 +65,30 @@ function renderStudentsTable(students) {
 
     students.forEach((student, index) => {
         const row = document.createElement("tr");
-        row.className = "hover:bg-[#FAF6F3]/50 transition text-slate-700 font-medium text-sm";
+        row.className = "student-row";
         row.innerHTML = `
-            <td class="p-4 text-center font-bold text-slate-400">${index + 1}</td>
-            <td class="p-4">
-                <div class="flex items-center gap-3">
-                    <div class="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-600">👤</div>
-                    <span class="font-bold text-[#2D1417]">${student.name}</span>
+            <td class="index-cell">${index + 1}</td>
+            <td>
+                <div class="student-info">
+                    <span class="student-name">${student.name}</span>
                 </div>
             </td>
-            <td class="p-4 text-center">
-                <div class="inline-flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-1.5 text-xs font-bold">
-                    <label class="flex items-center gap-1.5 cursor-pointer text-emerald-600 font-black"><input type="radio" name="att_${student.id}" value="present" class="accent-emerald-600"> Present</label>
-                    <label class="flex items-center gap-1.5 cursor-pointer text-amber-600 font-black"><input type="radio" name="att_${student.id}" value="late" class="accent-amber-600"> Late</label>
-                    <label class="flex items-center gap-1.5 cursor-pointer text-red-600 font-black"><input type="radio" name="att_${student.id}" value="absent" class="accent-red-600"> Absent</label>
+            <td style="text-align: center;">
+                <div class="attendance-options">
+                    <label class="radio-label radio-present">
+                        <input type="radio" name="att_${student.id}" value="present"> Present
+                    </label>
+                    <label class="radio-label radio-late">
+                        <input type="radio" name="att_${student.id}" value="late"> Late
+                    </label>
+                    <label class="radio-label radio-absent">
+                        <input type="radio" name="att_${student.id}" value="absent"> Absent
+                    </label>
                 </div>
             </td>
-            <td id="p_${student.id}" class="p-4 text-center font-black text-emerald-600 text-base">${student.attendance.present}</td>
-            <td id="a_${student.id}" class="p-4 text-center font-black text-red-600 text-base">${student.attendance.absent}</td>
-            <td id="l_${student.id}" class="p-4 text-center font-black text-amber-600 text-base">${student.attendance.late}</td>
+            <td id="p_${student.id}" class="count-present">${student.attendance.present}</td>
+            <td id="a_${student.id}" class="count-absent">${student.attendance.absent}</td>
+            <td id="l_${student.id}" class="count-late">${student.attendance.late}</td>
         `;
         tableBody.appendChild(row);
     });
@@ -146,12 +151,20 @@ async function handleSaveAttendance() {
 
 document.getElementById("save-attendance-btn").addEventListener("click", handleSaveAttendance);
 
+function renderCurrentDate() {
+    const dateContainer = document.getElementById("current-date-display");
+    if (dateContainer) {
+        const today = new Date().toISOString().split('T')[0];
+        dateContainer.innerText = today;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
+    renderCurrentDate(); 
     loadedStudentsArray = await fetchInstructorStudents(CURRENT_INSTRUCTOR_ID);
     renderStudentsTable(loadedStudentsArray);
     calculateClassAverage();
 });
-
 
 function markAllPresent() {
     loadedStudentsArray.forEach(student => {

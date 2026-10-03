@@ -13,7 +13,7 @@
           "id": "stu_001",
           "name": "Ahmad Khalid",
           "attendance": {
-            "present": 0,
+            "present": 1,
             "absent": 0,
             "late": 1,
             "lastAttendanceDate": "2026-10-03"
@@ -54,7 +54,7 @@
           "id": "stu_002",
           "name": "Sara Majed",
           "attendance": {
-            "present": 0,
+            "present": 1,
             "absent": 0,
             "late": 1,
             "lastAttendanceDate": "2026-10-03"
