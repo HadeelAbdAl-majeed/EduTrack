@@ -134,16 +134,8 @@ async function renderTable() {
 						<td>${exam.score}</td>
 						<td>${student.id}</td>
 					`;
-					// <td class="actions-cell" id='action-btns'>
-					// 		<button class="btn-icon btn-edit" data-id="${exam.id}" data-student-id="${student.id}">
-					// 			edit
-					// 		</button>
-					// 		<button class="btn-icon btn-delete" data-id="${exam.id}" data-student-id="${student.id}">
-					// 			delete
-					// 		</button>
-					// </td>
 					const actionCol = document.createElement('td');
-					// console.log(actionCol);
+					actionCol.className = 'actions-cell';
 					const editBtn = document.createElement('button');
 					const deleteBtn = document.createElement('button');
 

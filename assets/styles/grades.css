@@ -122,3 +122,108 @@ body {
 
 .btn-edit { background-color: #f5f0eb; color: #5d4037; }
 .btn-delete { background-color: #ffebe9; color: #d9534f; }
+
+/* Header Action Layout */
+.header-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.header-action .page-title {
+    margin-bottom: 0;
+}
+
+/* Hidden Form Toggle */
+.hidden {
+    display: none !important;
+}
+
+/* Form Panel Styling */
+.form-panel {
+    background-color: #fcfaf6;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.form-panel h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.input-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-group input {
+    padding: 10px;
+    border: 1px solid #e2ddd8;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Dynamic Question Blocks */
+.question-block {
+    background-color: white;
+    border: 1px solid #e2ddd8;
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.options-container {
+    margin-top: 12px;
+    padding-left: 12px;
+    border-left: 2px solid var(--border-color);
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.option-row input[type="text"] {
+    flex: 1;
+}
+
+/* Buttons */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-secondary {
+    background-color: #f0ece6;
+    color: var(--text-main);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 16px;
+}
