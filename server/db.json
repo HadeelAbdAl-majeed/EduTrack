@@ -13,9 +13,10 @@
           "id": "stu_001",
           "name": "Ahmad Khalid",
           "attendance": {
-            "present": 13,
-            "absent": 6,
-            "late": 1
+            "present": 0,
+            "absent": 0,
+            "late": 1,
+            "lastAttendanceDate": "2026-10-03"
           },
           "exams": [
             {
@@ -53,9 +54,10 @@
           "id": "stu_002",
           "name": "Sara Majed",
           "attendance": {
-            "present": 13,
-            "absent": 4,
-            "late": 1
+            "present": 0,
+            "absent": 0,
+            "late": 1,
+            "lastAttendanceDate": "2026-10-03"
           },
           "exams": [
             {
@@ -91,6 +93,12 @@
         }
       ],
       "announcements": [
+        {
+          "id": "ann_1790951985485",
+          "title": "bleach",
+          "body": "aizen",
+          "timestamp": "10/2/2026, 5:39:45 PM"
+        },
         {
           "id": "ann_1790951164679",
           "title": "project one",
