@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Portal - Attendance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="atend.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <div class="logo-box">
+                <div class="logo-shield">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <span>University Portal</span>
+            </div>
+            <i class="fa-solid fa-bars menu-toggle"></i>
+        </div>
+        <div class="nav-right">
+            <span>Dr. Ahmed</span>
+            <div class="user-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <aside>
+            <a href="#" class="nav-item">
+                <span class="custom-bullet"></span>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="custom-bullet"></span>
+                <span>Students</span>
+            </a>
+            <a href="#" class="nav-item active">
+                <span class="custom-bullet"></span>
+                <span>Attendance</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="custom-bullet"></span>
+                <span>Exams</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="custom-bullet"></span>
+                <span>Quizzes</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="custom-bullet"></span>
+                <span>Assignments</span>
+            </a>
+        </aside>
+
+        <main>
+            <div class="page-header">
+                <h1 class="page-title">Attendance</h1>
+                <button id="save-attendance-btn" class="btn-primary">Save Attendance</button>
+            </div>
+
+            <div class="controls-bar">
+                <div class="select-box">
+                    <span><i class="fa-regular fa-calendar"></i> <span id="current-date-display"></span></span>
+                </div>
+                <div class="select-box">
+                    <span>CS101</span>
+                    <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                </div>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search student...">
+                </div>
+                <button class="btn-outline">Mark all present</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-num">#</th>
+                            <th>Student</th>
+                            <th class="text-center">Attendance</th>
+                            <th class="text-center">Present</th>
+                            <th class="text-center">Absent</th>
+                            <th class="text-center">Late</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-table-body">
+                    </tbody>
+                </table>
+
+                <div class="table-footer">
+                    <div class="pagination">
+                        <span class="pagination-arrow"><i class="fa-solid fa-chevron-left"></i></span>
+                        <span class="page-num active">1</span>
+                        <span class="page-num">2</span>
+                        <span class="page-num">3</span>
+                        <span class="page-num">4</span>
+                        <span class="page-num">5</span>
+                        <span class="pagination-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                    <span class="showing-text">Showing 1-5 of 30</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="atend.js"></script>
+</body>
+</html>
