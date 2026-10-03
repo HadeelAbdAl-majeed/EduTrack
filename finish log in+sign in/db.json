@@ -146,7 +146,13 @@
             "lastAttendanceDate": "2026-10-03"
           },
           "archived": false,
-          "exams": [],
+          "exams": [
+            {
+              "id": "ex_1791037651357",
+              "name": "wssf",
+              "score": 1
+            }
+          ],
           "assignments": [],
           "quizzes": []
         },
