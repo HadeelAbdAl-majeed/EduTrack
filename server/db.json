@@ -31,14 +31,19 @@
           ],
           "assignments": [
             {
-              "id": "as_1",
-              "name": "Build a Calculator",
-              "score": 100
+              "id": "as_1790968686473",
+              "name": "ES5 Fundamentals",
+              "score": 50
             },
             {
-              "id": "as_2",
-              "name": "Async Fetch API",
-              "score": 85
+              "id": "as_1790969886979",
+              "name": "DOM project",
+              "score": 88
+            },
+            {
+              "id": "as_1791024460224",
+              "name": "CS Project",
+              "score": 55
             }
           ],
           "quizzes": [
