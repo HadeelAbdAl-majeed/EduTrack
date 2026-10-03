@@ -161,3 +161,48 @@ body.dark-mode .sidebar-links a.active .nav-icon::after,
 body.dark-mode .sidebar a.current .nav-icon::after {
     background: #fff;
 }
+
+/* ================= PROFILE MENU (مشترك) ================= */
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 170px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1100;
+}
+
+.profile-menu.open {
+    display: block;
+}
+
+.profile-menu button {
+    width: 100%;
+    margin-bottom: 5px;
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: block;
+    text-align: center;
+}
+
+.profile-menu button:hover {
+    background-color: var(--bg-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.profile-menu button:last-child {
+    margin-bottom: 0;
+}

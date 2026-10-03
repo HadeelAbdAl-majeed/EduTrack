@@ -5,50 +5,38 @@ body {
     background-color: var(--bg-color);
 }
 
-
 /* ================= NAVBAR ================= */
-
 .dashboard-navbar {
     height: 75px;
     width: 100%;
     padding: 0 30px;
-
     display: flex;
     align-items: center;
-
     background-color: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
-
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
 }
 
-
 /* ================= BURGER BUTTON ================= */
-
 .menu-btn {
     background: transparent;
     color: var(--text-main);
     border: none;
-
     font-size: 28px;
     padding: 5px 10px;
-
     cursor: pointer;
     line-height: 1;
 }
 
-
 /* ================= UNIVERSITY BRAND ================= */
-
 .university-brand {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-left: 20px;
-
     color: var(--text-main);
     font-weight: bold;
     font-family: var(--font-serif);
@@ -62,9 +50,7 @@ body {
     border-radius: 50%;
 }
 
-
 /* ================= PROFILE ================= */
-
 .profile-container {
     margin-left: auto;
     position: relative;
@@ -74,81 +60,36 @@ body {
     background: transparent;
     border: none;
     padding: 0;
-
     cursor: pointer;
 }
 
 .profile-btn img {
     width: 45px;
     height: 45px;
-
     object-fit: cover;
     border-radius: 50%;
     display: block;
 }
 
-
-/* ================= PROFILE MENU ================= */
-
-.profile-menu {
-    display: none;
-
-    position: absolute;
-    top: 55px;
-    right: 0;
-
-    width: 170px;
-
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-
-    padding: 10px;
-
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-.profile-menu button {
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-.profile-menu.open {
-    display: block;
-}
-
-
 /* ================= SIDEBAR ================= */
-
 .sidebar {
     position: fixed;
-
     top: 75px;
     left: -260px;
-
     width: 260px;
     height: calc(100vh - 75px);
-
     background-color: var(--card-bg);
     border-right: 1px solid var(--border-color);
-
     padding: 30px 20px;
-
     transition: left 0.3s ease;
-
     z-index: 999;
 }
-
-
-/* لما تكون مفتوحة */
 
 .sidebar.open {
     left: 0;
 }
 
-
 /* ================= SIDEBAR LINKS ================= */
-
 .sidebar-links {
     display: flex;
     flex-direction: column;
@@ -159,13 +100,9 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-
     padding: 14px 18px;
-
     color: var(--text-main);
-
     border-radius: 8px;
-
     transition: 0.2s;
 }
 
@@ -178,9 +115,7 @@ body {
     color: white;
 }
 
-
-/* ================= SIDEBAR ICON (النقاط) ================= */
-
+/* ================= SIDEBAR ICON ================= */
 .nav-icon {
     width: 18px;
     height: 18px;
@@ -199,7 +134,6 @@ body {
     background: var(--primary-color);
 }
 
-/* لما يكون الرابط نشط: عكس الألوان */
 .sidebar-links a.active .nav-icon {
     border-color: #fff;
     background: transparent;
@@ -209,14 +143,10 @@ body {
     background: #fff;
 }
 
-
 /* ================= MAIN CONTENT ================= */
-
 .dashboard-content {
     margin-top: 75px;
-
     padding: 40px;
-
     min-height: calc(100vh - 75px);
 }
 
@@ -224,207 +154,7 @@ body {
     color: var(--text-main);
 }
 
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 768px) {
-
-    /* ---- Navbar ---- */
-    .dashboard-navbar {
-        padding: 0 18px;
-    }
-
-    .menu-btn {
-        font-size: 24px;
-        padding: 4px 8px;
-    }
-
-    .university-brand {
-        margin-left: 12px;
-        font-size: 1rem;
-        gap: 8px;
-    }
-
-    .university-brand img {
-        width: 36px;
-        height: 36px;
-    }
-
-    .profile-btn img {
-        width: 38px;
-        height: 38px;
-    }
-
-    /* ---- Sidebar ---- */
-    .sidebar {
-        width: 240px;
-        left: -240px;
-        padding: 24px 16px;
-    }
-
-    .sidebar.open {
-        left: 0;
-    }
-
-    /* ---- Content ---- */
-    .dashboard-content {
-        padding: 24px 18px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    /* ---- Navbar ---- */
-    .dashboard-navbar {
-        height: 65px;
-        padding: 0 14px;
-    }
-
-    .menu-btn {
-        font-size: 22px;
-        padding: 3px 6px;
-    }
-
-    .university-brand {
-        margin-left: 8px;
-        font-size: 0.95rem;
-        gap: 6px;
-    }
-
-    .university-brand img {
-        width: 32px;
-        height: 32px;
-    }
-
-    .profile-btn img {
-        width: 34px;
-        height: 34px;
-    }
-
-    /* ---- Sidebar ---- */
-    .sidebar {
-        top: 65px;
-        width: 220px;
-        left: -220px;
-        height: calc(100vh - 65px);
-        padding: 20px 14px;
-    }
-
-    .sidebar.open {
-        left: 0;
-    }
-
-    .sidebar-links a {
-        padding: 12px 14px;
-        font-size: 0.9rem;
-    }
-
-    /* ---- Content ---- */
-    .dashboard-content {
-        margin-top: 65px;
-        padding: 20px 14px;
-        min-height: calc(100vh - 65px);
-    }
-
-    .dashboard-content h1 {
-        font-size: 1.5rem;
-    }
-
-    /* ---- Profile menu ---- */
-    .profile-menu {
-        width: 150px;
-        top: 50px;
-    }
-}
-
-/* ================= DASHBOARD STATS ================= */
-
-.dashboard-content .page-head {
-    margin-bottom: 30px;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.stat-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 24px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
-}
-
-.stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(106, 27, 41, 0.08);
-}
-
-.stat-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: var(--bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-}
-
-.stat-title {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin: 0 0 8px;
-}
-
-.stat-value {
-    font-family: var(--font-serif);
-    font-size: 2.4rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin: 0 0 6px;
-    line-height: 1.1;
-}
-
-.stat-meta {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin: 0;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 480px) {
-    .dashboard-content .page-head h1 {
-        font-size: 1.6rem;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-
-    .stat-card {
-        padding: 18px;
-    }
-
-    .stat-value {
-        font-size: 2rem;
-    }
-}
-
 /* ================= WELCOME HEADER ================= */
-.dashboard-content .page-head {
-    margin-bottom: 30px;
-}
-
 .welcome-label {
     font-size: 0.8rem;
     font-weight: 700;
@@ -432,6 +162,10 @@ body {
     color: var(--primary-color);
     text-transform: uppercase;
     margin: 0 0 6px;
+}
+
+.dashboard-content .page-head {
+    margin-bottom: 30px;
 }
 
 .dashboard-content .page-head h1 {
@@ -550,7 +284,6 @@ body {
     margin: 0;
 }
 
-/* Chart.js canvas - constrain size */
 .chart-body canvas {
     max-height: 100%;
     max-width: 100%;
@@ -558,6 +291,45 @@ body {
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
+    .dashboard-navbar {
+        padding: 0 18px;
+    }
+
+    .menu-btn {
+        font-size: 24px;
+        padding: 4px 8px;
+    }
+
+    .university-brand {
+        margin-left: 12px;
+        font-size: 1rem;
+        gap: 8px;
+    }
+
+    .university-brand img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .profile-btn img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .sidebar {
+        width: 240px;
+        left: -240px;
+        padding: 24px 16px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .dashboard-content {
+        padding: 24px 18px;
+    }
+
     .welcome-label {
         font-size: 0.75rem;
     }
@@ -585,6 +357,55 @@ body {
 }
 
 @media (max-width: 480px) {
+    .dashboard-navbar {
+        height: 65px;
+        padding: 0 14px;
+    }
+
+    .menu-btn {
+        font-size: 22px;
+        padding: 3px 6px;
+    }
+
+    .university-brand {
+        margin-left: 8px;
+        font-size: 0.95rem;
+        gap: 6px;
+    }
+
+    .university-brand img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .profile-btn img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .sidebar {
+        top: 65px;
+        width: 220px;
+        left: -220px;
+        height: calc(100vh - 65px);
+        padding: 20px 14px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar-links a {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+
+    .dashboard-content {
+        margin-top: 65px;
+        padding: 20px 14px;
+        min-height: calc(100vh - 65px);
+    }
+
     .dashboard-content .page-head h1 {
         font-size: 1.3rem;
     }
