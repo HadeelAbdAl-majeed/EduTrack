@@ -9,74 +9,74 @@
         {
           "id": "stu_001",
           "name": "Ahmad Khalid",
-          "attendance": "late",
-          "exams": [
-            {
-              "id": "ex_1",
-              "name": "Midterm Exam",
-              "score": 88
-            },
-            {
-              "id": "ex_2",
-              "name": "Final Exam",
-              "score": 94
-            }
-          ],
-          "assignments": [
-            {
-              "id": "as_1",
-              "name": "Build a Calculator",
-              "score": 100
-            },
-            {
-              "id": "as_2",
-              "name": "Async Fetch API",
-              "score": 85
-            }
-          ],
-          "quizzes": [
-            {
-              "id": "qz_1",
-              "name": "ES6 Syntax",
-              "score": 90
-            }
-          ]
+          "studentId": "S-1001",
+          "email": "ahmad@uni.com",
+          "department": "CS",
+          "attendance": {
+            "status": "present",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
         },
         {
           "id": "stu_002",
           "name": "Sara Majed",
-          "attendance": "absent",
-          "exams": [
-            {
-              "id": "ex_1",
-              "name": "Midterm Exam",
-              "score": 70
-            },
-            {
-              "id": "ex_2",
-              "name": "Final Exam",
-              "score": 82
-            }
-          ],
-          "assignments": [
-            {
-              "id": "as_1",
-              "name": "Build a Calculator",
-              "score": 80
-            },
-            {
-              "id": "as_2",
-              "name": "Async Fetch API",
-              "score": 0
-            }
-          ],
-          "quizzes": [
-            {
-              "id": "qz_1",
-              "name": "ES6 Syntax",
-              "score": 65
-            }
-          ]
+          "studentId": "S-1002",
+          "email": "sara@uni.com",
+          "department": "IT",
+          "attendance": {
+            "status": "late",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_003",
+          "name": "Omar Tariq",
+          "studentId": "S-1003",
+          "email": "omar@uni.com",
+          "department": "Business",
+          "attendance": {
+            "status": "absent",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": true,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_004",
+          "name": "Layla Hassan",
+          "studentId": "S-1004",
+          "email": "layla@uni.com",
+          "department": "CS",
+          "attendance": {
+            "status": "present",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
         }
       ]
     },
@@ -87,39 +87,133 @@
       "password": "password_456",
       "students": [
         {
-          "id": "stu_003",
-          "name": "Omar Tariq",
-          "attendance": "present",
-          "exams": [
+          "id": "stu_101",
+          "name": "Yousef Ali",
+          "studentId": "S-2001",
+          "email": "yousef@uni.com",
+          "department": "IT",
+          "attendance": {
+            "status": "present",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_102",
+          "name": "Noor Sami",
+          "studentId": "S-2002",
+          "email": "noor@uni.com",
+          "department": "Business",
+          "attendance": {
+            "status": "late",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        }
+      ]
+    },
+    {
+      "id": "IsQFiURoK_Y",
+      "firstName": "محمد",
+      "lastName": "الطريفي",
+      "username": "محمد",
+      "email": "mo.tarifi2004@gmail.com",
+      "password": "123",
+      "students": [
+        {
+          "id": "stu_1791025194215",
+          "name": "Zoya Gaponenko",
+          "studentId": "sasa",
+          "email": "mo.tari004@gmail.com",
+          "department": "CS",
+          "attendance": {
+            "status": "present",
+            "present": 1,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": "2026-10-03"
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_1791028899709",
+          "name": "MO.TARIFI",
+          "studentId": "S-111",
+          "email": "mo.ta@gmail.com",
+          "department": "IT",
+          "attendance": {
+            "status": "late",
+            "present": 1,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": "2026-10-03"
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_1791029090056",
+          "name": "WERQWMKNLREJKLERQKJOREQWKJQERKJLQWREKLJWQERLQERWRQEKWLJKLJEQR",
+          "studentId": "S-124",
+          "email": "tarifi2004@gmail.com",
+          "department": "CS",
+          "attendance": {
+            "status": "late",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        }
+      ],
+      "quizzes": [
+        {
+          "id": "quiz_1791028995204",
+          "title": "HTML",
+          "questions": [
             {
-              "id": "ex_1",
-              "name": "Midterm Exam",
-              "score": 95
-            }
-          ],
-          "assignments": [
-            {
-              "id": "as_1",
-              "name": "Figma Wireframing",
-              "score": 90
-            }
-          ],
-          "quizzes": [
-            {
-              "id": "qz_1",
-              "name": "Component Lifecycle",
-              "score": 100
+              "id": "q_1791028995204_irua",
+              "text": "eerqreqrqeqer",
+              "options": [
+                "qwwq",
+                "wwrw",
+                "qrqrwrew"
+              ],
+              "correctOptionIndex": 0
             }
           ]
         }
       ]
     },
     {
-      "firstName": "محمد",
-      "lastName": "الطريفي",
-      "email": "mo.tarifi2004@gmail.com",
-      "password": "123",
-      "id": "IsQFiURoK_Y"
+      "id": "IYMta7ZBFGw",
+      "firstName": "adel",
+      "lastName": "samer",
+      "username": "adel",
+      "email": "samera@gmail.com",
+      "password": "987",
+      "students": []
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
