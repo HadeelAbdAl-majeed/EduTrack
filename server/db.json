@@ -8,6 +8,34 @@
       "DISABLED_COMMENT_DO_NOT_EXECUTE": {
         "note": "This block is fully commented out and will not be executed by the code."
       },
+      "quizzes": [
+        {
+          "id": "quiz_001",
+          "title": "HTML & CSS Basics",
+          "questions": [
+            {
+              "id": "q_1",
+              "text": "What does HTML stand for?",
+              "options": [
+                "Hyper Text Markup Language",
+                "Home Tool Markup Language",
+                "Hyperlinks and Text Markup Language"
+              ],
+              "correctOptionIndex": 0
+            },
+            {
+              "id": "q_2",
+              "text": "Which property changes the background color?",
+              "options": [
+                "color",
+                "bgcolor",
+                "background-color"
+              ],
+              "correctOptionIndex": 2
+            }
+          ]
+        }
+      ],
       "students": [
         {
           "id": "stu_001",
@@ -20,13 +48,23 @@
           "exams": [
             {
               "id": "ex_1",
-              "name": "Midterm Exam",
+              "name": "Midterm",
               "score": 88
             },
             {
               "id": "ex_2",
               "name": "Final Exam",
               "score": 94
+            },
+            {
+              "id": "ex_1790956477122",
+              "name": "html",
+              "score": 90
+            },
+            {
+              "id": "ex_1790960607243",
+              "name": "php",
+              "score": 40
             }
           ],
           "assignments": [
@@ -46,10 +84,10 @@
               "score": 55
             }
           ],
-          "quizzes": [
+          "quizzes_ref": [
             {
               "id": "qz_1",
-              "name": "ES6 Syntax",
+              "ref": "quiz_001",
               "score": 90
             }
           ]
@@ -86,10 +124,10 @@
               "score": 0
             }
           ],
-          "quizzes": [
+          "quizzes_ref": [
             {
-              "id": "qz_1",
-              "name": "ES6 Syntax",
+              "id": "qz_2",
+              "ref": "quiz_001",
               "score": 65
             }
           ]

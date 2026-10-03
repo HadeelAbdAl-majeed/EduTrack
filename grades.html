@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exams Component</title>
+    <link rel="stylesheet" href="./assets/styles/grades.css">
+</head>
+<body>
+
+    <!-- The core container your team can drop into their main layout -->
+    <div class="exams-component">
+        <h1 class="page-title">Exams</h1>
+
+        <!-- Add Exam Form styled as a horizontal toolbar -->
+        <form id="exam-form" class="exam-form toolbar">
+            <input type="text" id="exam-name-input" placeholder="Exam Name" required>
+            <input type="number" id="exam-score-input" placeholder="Score" required>
+            <input type="text" id="student-id-input" placeholder="Student ID (e.g., stu_001)" required>
+            <button type="submit" class="btn-primary" id="add-exam-score-btn">+ Add Exam</button>
+        </form>
+
+        <!-- Exam Table -->
+        <div class="table-container">
+            <table class="exam-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Score</th>
+                        <th>Student</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="exam-tbody">
+                    <!-- Rows will be dynamically injected here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./js/core/grades.js"></script>
+</body>
+</html>
