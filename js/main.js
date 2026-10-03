@@ -1,15 +1,18 @@
-import { getInstructor, saveStudents, fetchRandomName } from "./core/api.js";
-import { getInstructorId } from "./core/session.js";
-import { generateId, escapeHtml } from "./utils/helpers.js";
+import { getInstructor, saveStudents, fetchRandomName } from "./api.js";
+import { getInstructorId } from "./session.js";
+import { generateId, escapeHtml } from "./helpers.js";
 import { initChatbot } from "./chatbot.js";
 
 const PAGE_SIZE = 5;
 
 const ICONS = {
   edit: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>',
-  archive: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg>',
-  restore: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
-  delete: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/></svg>',
+  archive:
+    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg>',
+  restore:
+    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
+  delete:
+    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/></svg>',
 };
 
 const instructorId = getInstructorId();
@@ -57,7 +60,8 @@ function filteredStudents() {
   return students.filter((s) => {
     if (statusFilter.value === "active" && s.archived) return false;
     if (statusFilter.value === "archived" && !s.archived) return false;
-    if (departmentFilter.value && s.department !== departmentFilter.value) return false;
+    if (departmentFilter.value && s.department !== departmentFilter.value)
+      return false;
     return `${s.name} ${s.email} ${s.studentId}`.toLowerCase().includes(text);
   });
 }
@@ -96,7 +100,7 @@ function render() {
           ${s.archived ? actionButton("restore", "Restore", s.id) : actionButton("archive", "Archive", s.id)}
           ${actionButton("delete", "Delete permanently", s.id)}
         </td>
-      </tr>`
+      </tr>`,
     )
     .join("");
 
@@ -108,16 +112,37 @@ function render() {
 function openForm(student) {
   form.reset();
   formError.textContent = "";
-  document.getElementById("dialog-title").textContent = student ? "Edit Student" : "Add Student";
+  document.getElementById("dialog-title").textContent = student
+    ? "Edit Student"
+    : "Add Student";
   fields.editId.value = student ? student.id : "";
   if (student) {
     fields.name.value = student.name;
     fields.studentId.value = student.studentId;
     fields.email.value = student.email;
     fields.department.value = student.department;
-    fields.attendance.value = student.attendance;
+    const att = student.attendance;
+    fields.attendance.value =
+      typeof att === "object" ? att.status || "present" : att;
   }
   dialog.showModal();
+}
+
+function buildAttendance(existing, status) {
+  if (existing && typeof existing.attendance === "object") {
+    return { ...existing.attendance, status };
+  }
+  if (existing && typeof existing.attendance === "string") {
+    const old = existing.attendance;
+    return {
+      status,
+      present: old === "present" ? 1 : 0,
+      absent: old === "absent" ? 1 : 0,
+      late: old === "late" ? 1 : 0,
+      lastAttendanceDate: "",
+    };
+  }
+  return { status, present: 0, absent: 0, late: 0, lastAttendanceDate: "" };
 }
 
 function submitForm(e) {
@@ -136,19 +161,22 @@ function submitForm(e) {
     return;
   }
   const duplicate = students.some(
-    (s) => s.studentId.toLowerCase() === studentId.toLowerCase() && s.id !== editId
+    (s) =>
+      s.studentId.toLowerCase() === studentId.toLowerCase() && s.id !== editId,
   );
   if (duplicate) {
     formError.textContent = "This student ID already exists.";
     return;
   }
 
+  const existing = editId ? students.find((s) => s.id === editId) : null;
+
   const data = {
     name,
     studentId,
     email,
     department: fields.department.value,
-    attendance: fields.attendance.value,
+    attendance: buildAttendance(existing, fields.attendance.value),
   };
 
   if (editId) {
@@ -181,8 +209,12 @@ function resetPageAndRender() {
   render();
 }
 
-document.getElementById("add-student").addEventListener("click", () => openForm(null));
-document.getElementById("cancel").addEventListener("click", () => dialog.close());
+document
+  .getElementById("add-student")
+  .addEventListener("click", () => openForm(null));
+document
+  .getElementById("cancel")
+  .addEventListener("click", () => dialog.close());
 document.getElementById("menu-toggle").addEventListener("click", () => {
   document.getElementById("app").classList.toggle("nav-toggled");
 });
@@ -191,7 +223,10 @@ form.addEventListener("submit", submitForm);
 document.getElementById("random-name").addEventListener("click", () => {
   fetchRandomName()
     .then((name) => (fields.name.value = name))
-    .catch(() => (formError.textContent = "Could not get a name. Check your internet."));
+    .catch(
+      () =>
+        (formError.textContent = "Could not get a name. Check your internet."),
+    );
 });
 
 searchInput.addEventListener("input", resetPageAndRender);
@@ -216,10 +251,18 @@ body.addEventListener("click", (e) => {
 
 initChatbot(() => students);
 
-getInstructor(instructorId)
-  .then((instructor) => {
-    students = instructor.students;
-    document.getElementById("instructor-name").textContent = instructor.username;
-    render();
-  })
-  .catch(() => showMessage("Could not load data. Is json-server running?"));
+if (!instructorId) {
+  window.location.href = "login.html";
+} else {
+  getInstructor(instructorId)
+    .then((instructor) => {
+      students = instructor.students || [];
+      render();
+      const nameEl = document.getElementById("instructor-name");
+      if (nameEl) {
+        nameEl.textContent =
+          instructor.username || instructor.firstName || "Instructor";
+      }
+    })
+    .catch(() => showMessage("Could not load data. Is json-server running?"));
+}
