@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzes Component</title>
+    <link rel="stylesheet" href="./assets/styles/grades.css"> <!-- Reusing your clean styles -->
+</head>
+<body>
+    <div class="exams-component">
+        <div class="header-action">
+            <h1 class="page-title">Manage Quizzes</h1>
+            <button id="toggle-quiz-form-btn" class="btn-primary">+ Create New Quiz</button>
+        </div>
+
+        <!-- HIDDEN FORM CONTAINER -->
+        <div id="quiz-form-container" class="form-panel hidden">
+            <h2>Quiz Details</h2>
+            <form id="quiz-form">
+                <input type="hidden" id="editing-quiz-id"> <!-- Tracks if we are editing -->
+
+                <div class="input-group">
+                    <label>Quiz Title</label>
+                    <input type="text" id="quiz-title-input" placeholder="e.g., HTML Basics" required>
+                </div>
+
+                <!-- Dynamic questions will be injected here -->
+                <div id="questions-container"></div>
+
+                <div class="form-actions">
+                    <button type="button" id="add-question-btn" class="btn-secondary">+ Add Question</button>
+                    <div>
+                        <button type="button" id="cancel-quiz-btn" class="btn-text">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Quiz</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Quizzes Table -->
+        <div class="table-container">
+            <table class="exam-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Quiz Title</th>
+                        <th>Total Questions</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="quiz-tbody">
+                    <!-- Rows will be dynamically injected here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./js/core/quizzes.js"></script>
+</body>
+</html>
