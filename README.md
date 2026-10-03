@@ -40,7 +40,7 @@ edu project/
 ├── css/
 │   ├── global.css
 │   ├── navbar.css
-│   ├── home.css
+│   ├── index.css
 │   ├── about.css
 │   ├── contact.css
 │   ├── auth.css
@@ -72,7 +72,7 @@ edu project/
 │   ├── profile.jpg
 │   └── ...
 │
-├── HOME.html
+├── index.html
 ├── ABOUT.html
 ├── CONTACT.html
 ├── Login.html

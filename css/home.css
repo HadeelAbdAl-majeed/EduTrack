@@ -1,9 +1,9 @@
-/* 
-   ملف home.css
-   هذا الملف مخصص لتنسيق العناصر الموجودة في الصفحة الرئيسية (HOME.html) 
+/*
+   ملف index.css
+   هذا الملف مخصص لتنسيق العناصر الموجودة في الصفحة الرئيسية (index.html)
 */
 
-html::-webkit-scrollbar, 
+html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none; /* لمتصفحات كروم، وسافاري، وأوبرا */
 }
@@ -15,7 +15,7 @@ body::-webkit-scrollbar {
     justify-content: space-between;
     gap: 2rem;
     /* يأخذ المساحة المتبقية من الشاشة أسفل الـ Navbar */
-    min-height: calc(100vh - 100px); 
+    min-height: calc(100vh - 100px);
     padding: 2rem 5%;
 }
 
@@ -61,11 +61,11 @@ body::-webkit-scrollbar {
     height: auto;
     border-radius: 24px;
     /* ظل خفيف لإبراز الصورة كما في التصاميم الحديثة */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
-/* 
-   ملاحظة: زر تسجيل الدخول غير موجود في قسم hero-content في الـ HTML الخاص بك 
+/*
+   ملاحظة: زر تسجيل الدخول غير موجود في قسم hero-content في الـ HTML الخاص بك
    (موجود فقط في الـ Navbar)، لذلك لم يتم إضافة تنسيق لزر هنا بناءً على طلبك بالالتزام بالموجود فقط.
 */
 

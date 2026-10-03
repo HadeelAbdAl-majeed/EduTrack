@@ -20,7 +20,18 @@
             "lastAttendanceDate": ""
           },
           "archived": false,
-          "exams": [],
+          "exams": [
+            {
+              "id": "ex_1791048743652",
+              "name": "exam",
+              "score": 100
+            },
+            {
+              "id": "ex_1791048803883",
+              "name": "js",
+              "score": 50
+            }
+          ],
           "assignments": [],
           "quizzes": []
         },
@@ -65,6 +76,24 @@
           "name": "Layla Hassan",
           "studentId": "S-1004",
           "email": "layla@uni.com",
+          "department": "CS",
+          "attendance": {
+            "status": "present",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_1791048713523",
+          "name": "Edwin Fields",
+          "studentId": "s-100",
+          "email": "sondos@email.com",
           "department": "CS",
           "attendance": {
             "status": "present",
