@@ -2,8 +2,8 @@
   "instructors": [
     {
       "id": "inst_01",
-      "email": "sondos@gmail.com",
-      "username": "sondos",
+      "email": "adelhasan@gmail.com",
+      "username": "adel",
       "password": "password_123",
       "DISABLED_COMMENT_DO_NOT_EXECUTE": {
         "note": "This block is fully commented out and will not be executed by the code."
@@ -38,8 +38,12 @@
       ],
       "students": [
         {
-          "id": "stu_001",
-          "name": "Ahmad Khalid",
+         "id": "stu_002",
+          "studentId": "S-1002",
+          "name": "Sara Majed",
+          "email": "sara@uni.com",
+          "department": "IT",
+          "archived": false,
           "attendance": {
             "present": 1,
             "absent": 0,
@@ -95,7 +99,11 @@
         },
         {
           "id": "stu_002",
+          "studentId": "S-2001",
           "name": "Sara Majed",
+          "email": "omar.t@uni.com",
+          "department": "IT",
+          "archived": false,
           "attendance": {
             "present": 1,
             "absent": 0,
@@ -106,24 +114,14 @@
             {
               "id": "ex_1",
               "name": "Midterm Exam",
-              "score": 70
-            },
-            {
-              "id": "ex_2",
-              "name": "Final Exam",
-              "score": 82
+              "score": 95
             }
           ],
           "assignments": [
             {
               "id": "as_1",
-              "name": "Build a Calculator",
-              "score": 80
-            },
-            {
-              "id": "as_2",
-              "name": "Async Fetch API",
-              "score": 0
+              "name": "Figma Wireframing",
+              "score": 90
             }
           ],
           "quizzes_ref": [
