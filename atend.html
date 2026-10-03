@@ -1,114 +1,124 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Portal - Attendance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="atend.css">
+    <title>Attendance | EduTrack</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/atend.css">
 </head>
+
 <body>
+    <div class="app" id="app">
 
-    <header>
-        <div class="nav-left">
-            <div class="logo-box">
-                <div class="logo-shield">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <span>University Portal</span>
-            </div>
-            <i class="fa-solid fa-bars menu-toggle"></i>
-        </div>
-        <div class="nav-right">
-            <span>Dr. Ahmed</span>
-            <div class="user-avatar">
-                <i class="fa-solid fa-user"></i>
-            </div>
-        </div>
-    </header>
+        <!-- ================= TOPBAR ================= -->
+        <header class="topbar">
+            <button id="menu-toggle" class="menu-btn" aria-label="Toggle menu">
+                ☰
+            </button>
 
-    <div class="app-container">
-        <aside>
-            <a href="#" class="nav-item">
-                <span class="custom-bullet"></span>
-                <span>Dashboard</span>
-            </a>
-            <a href="#" class="nav-item">
-                <span class="custom-bullet"></span>
-                <span>Students</span>
-            </a>
-            <a href="#" class="nav-item active">
-                <span class="custom-bullet"></span>
-                <span>Attendance</span>
-            </a>
-            <a href="#" class="nav-item">
-                <span class="custom-bullet"></span>
-                <span>Exams</span>
-            </a>
-            <a href="#" class="nav-item">
-                <span class="custom-bullet"></span>
-                <span>Quizzes</span>
-            </a>
-            <a href="#" class="nav-item">
-                <span class="custom-bullet"></span>
-                <span>Assignments</span>
-            </a>
-        </aside>
-
-        <main>
-            <div class="page-header">
-                <h1 class="page-title">Attendance</h1>
-                <button id="save-attendance-btn" class="btn-primary">Save Attendance</button>
+            <div class="university-brand">
+                <img src="photo/logo.jpg" alt="University Logo">
+                <span>eduTrack</span>
             </div>
 
-            <div class="controls-bar">
-                <div class="select-box">
-                    <span><i class="fa-regular fa-calendar"></i> <span id="current-date-display"></span></span>
-                </div>
-                <div class="select-box">
-                    <span>CS101</span>
-                    <i class="fa-solid fa-chevron-down chevron-icon"></i>
-                </div>
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" placeholder="Search student...">
-                </div>
-                <button class="btn-outline">Mark all present</button>
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="col-num">#</th>
-                            <th>Student</th>
-                            <th class="text-center">Attendance</th>
-                            <th class="text-center">Present</th>
-                            <th class="text-center">Absent</th>
-                            <th class="text-center">Late</th>
-                        </tr>
-                    </thead>
-                    <tbody id="student-table-body">
-                    </tbody>
-                </table>
-
-                <div class="table-footer">
-                    <div class="pagination">
-                        <span class="pagination-arrow"><i class="fa-solid fa-chevron-left"></i></span>
-                        <span class="page-num active">1</span>
-                        <span class="page-num">2</span>
-                        <span class="page-num">3</span>
-                        <span class="page-num">4</span>
-                        <span class="page-num">5</span>
-                        <span class="pagination-arrow"><i class="fa-solid fa-chevron-right"></i></span>
-                    </div>
-                    <span class="showing-text">Showing 1-5 of 30</span>
-                </div>
-            </div>
-        </main>
+           <div class="profile-container">
+    <button id="profileBtn" class="profile-btn" aria-label="Profile">
+        <img src="photo/profile.jpg" alt="Profile">
+    </button>
+    <div id="profileMenu" class="profile-menu">
+        <button id="darkModeBtn">🌙</button>
+        <button id="logoutBtn">Sign Out</button>
     </div>
+</div>
+        </header>
 
-    <script src="atend.js"></script>
+        <!-- ================= SHELL ================= -->
+        <div class="shell">
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+    <nav>
+        <a href="dashboard.html">
+            <span class="nav-icon"></span>
+            Dashboard
+        </a>
+        <a href="Student.html">
+            <span class="nav-icon"></span>
+            Students
+        </a>
+       <a href="exams.html"><span class="nav-icon"></span>Exams</a>
+<a href="quizzes.html"><span class="nav-icon"></span>Quizzes</a>
+<a href="assigment.html"><span class="nav-icon"></span>Assignments</a>
+
+        <a href="atend.html" class="current">
+            <span class="nav-icon"></span>
+            Attendance
+        </a>
+    </nav>
+</aside>
+
+            <!-- Main Content -->
+            <main class="content">
+                <div class="page-head">
+                    <h1>Attendance</h1>
+                    <button id="save-attendance-btn" class="btn primary">
+                        Save Attendance
+                    </button>
+                </div>
+
+                <div class="filters">
+                    <div class="search-box">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="m20 20-3.5-3.5" />
+                        </svg>
+                        <input
+                            id="search"
+                            type="search"
+                            placeholder="Search student..."
+                            aria-label="Search students"
+                        />
+                    </div>
+                    <button id="mark-all-present" class="btn">
+                        Mark all present
+                    </button>
+                </div>
+
+                <section class="panel">
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 60px;">#</th>
+                                    <th>Student</th>
+                                    <th>Attendance</th>
+                                    <th style="width: 90px;">Present</th>
+                                    <th style="width: 90px;">Absent</th>
+                                    <th style="width: 90px;">Late</th>
+                                </tr>
+                            </thead>
+                            <tbody id="student-table-body"></tbody>
+                        </table>
+                        <p id="empty" class="empty" hidden>No students to show.</p>
+                    </div>
+
+                    <div class="panel-foot">
+                        <span class="muted">
+                            Class Average:
+                            <strong id="class-average-display" class="class-average">0.0%</strong>
+                        </span>
+                        <span class="muted" id="showing"></span>
+                    </div>
+                </section>
+            </main>
+
+        </div>
+    </div>
+<script src="js/profile-menu.js"></script> 
+    <script src="js/atend.js"></script>
+    <script src="js/dark.js"></script>
 </body>
 </html>

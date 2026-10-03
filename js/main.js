@@ -1,6 +1,6 @@
-import { getInstructor, saveStudents, fetchRandomName } from "./core/api.js";
-import { getInstructorId } from "./core/session.js";
-import { generateId, escapeHtml } from "./utils/helpers.js";
+import { getInstructor, saveStudents, fetchRandomName } from "./api.js";
+import { getInstructorId } from "./session.js";
+import { generateId, escapeHtml } from "./helpers.js";
 import { initChatbot } from "./chatbot.js";
 
 const PAGE_SIZE = 5;
@@ -115,7 +115,9 @@ function openForm(student) {
     fields.studentId.value = student.studentId;
     fields.email.value = student.email;
     fields.department.value = student.department;
-    fields.attendance.value = student.attendance;
+   const att = student.attendance;
+fields.attendance.value =
+    typeof att === "object" ? (att.status || "present") : att;
   }
   dialog.showModal();
 }
@@ -143,12 +145,47 @@ function submitForm(e) {
     return;
   }
 
+    const selectedStatus = fields.attendance.value; // "present" / "late" / "absent"
+
+  // ---- بناء attendance كـ object موحّد ----
+  const existingStudent = editId
+    ? students.find((s) => s.id === editId)
+    : null;
+
+  let attendanceObject;
+
+  if (existingStudent && typeof existingStudent.attendance === "object") {
+    // طالب موجود - نحافظ على العدّادات ونحدّث الـ status فقط
+    attendanceObject = {
+      ...existingStudent.attendance,
+      status: selectedStatus,
+    };
+  } else if (existingStudent && typeof existingStudent.attendance === "string") {
+    // ترقية من string لـ object (للطلاب القدامى)
+    attendanceObject = {
+      status: selectedStatus,
+      present: existingStudent.attendance === "present" ? 1 : 0,
+      absent: existingStudent.attendance === "absent" ? 1 : 0,
+      late: existingStudent.attendance === "late" ? 1 : 0,
+      lastAttendanceDate: "",
+    };
+  } else {
+    // طالب جديد
+    attendanceObject = {
+      status: selectedStatus,
+      present: 0,
+      absent: 0,
+      late: 0,
+      lastAttendanceDate: "",
+    };
+  }
+
   const data = {
     name,
     studentId,
     email,
     department: fields.department.value,
-    attendance: fields.attendance.value,
+    attendance: attendanceObject,
   };
 
   if (editId) {
@@ -216,10 +253,16 @@ body.addEventListener("click", (e) => {
 
 initChatbot(() => students);
 
-getInstructor(instructorId)
-  .then((instructor) => {
-    students = instructor.students;
-    document.getElementById("instructor-name").textContent = instructor.username;
-    render();
-  })
-  .catch(() => showMessage("Could not load data. Is json-server running?"));
+if (!instructorId) {
+  // ما في مدرّس مسجّل → رجّعه على صفحة الدخول
+  window.location.href = "login.html";
+} else {
+  getInstructor(instructorId)
+    .then((instructor) => {
+      students = instructor.students || [];
+      document.getElementById("instructor-name").textContent =
+        instructor.username || instructor.firstName || "Instructor";
+      render();
+    })
+    .catch(() => showMessage("Could not load data. Is json-server running?"));
+}

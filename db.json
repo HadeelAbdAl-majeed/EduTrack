@@ -1,0 +1,320 @@
+{
+  "instructors": [
+    {
+      "id": "inst_01",
+      "email": "sondos@gmail.com",
+      "username": "sondos",
+      "password": "password_123",
+      "students": [
+        {
+          "id": "stu_001",
+          "name": "Ahmad Khalid",
+          "studentId": "S-1001",
+          "email": "ahmad@uni.com",
+          "department": "CS",
+          "attendance": {
+            "status": "present",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_002",
+          "name": "Sara Majed",
+          "studentId": "S-1002",
+          "email": "sara@uni.com",
+          "department": "IT",
+          "attendance": {
+            "status": "late",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_003",
+          "name": "Omar Tariq",
+          "studentId": "S-1003",
+          "email": "omar@uni.com",
+          "department": "Business",
+          "attendance": {
+            "status": "absent",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": true,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_004",
+          "name": "Layla Hassan",
+          "studentId": "S-1004",
+          "email": "layla@uni.com",
+          "department": "CS",
+          "attendance": {
+            "status": "present",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        }
+      ]
+    },
+    {
+      "id": "inst_02",
+      "email": "admin@email.com",
+      "username": "gdg_admin",
+      "password": "password_456",
+      "students": [
+        {
+          "id": "stu_101",
+          "name": "Yousef Ali",
+          "studentId": "S-2001",
+          "email": "yousef@uni.com",
+          "department": "IT",
+          "attendance": {
+            "status": "present",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_102",
+          "name": "Noor Sami",
+          "studentId": "S-2002",
+          "email": "noor@uni.com",
+          "department": "Business",
+          "attendance": {
+            "status": "late",
+            "present": 0,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": ""
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        }
+      ]
+    },
+    {
+      "id": "IsQFiURoK_Y",
+      "firstName": "محمد",
+      "lastName": "الطريفي",
+      "username": "محمد",
+      "email": "mo.tarifi2004@gmail.com",
+      "password": "123",
+      "students": [
+        {
+          "id": "stu_1791025194215",
+          "name": "Zoya Gaponenko",
+          "studentId": "sasa",
+          "email": "mo.tari004@gmail.com",
+          "department": "CS",
+          "attendance": {
+            "status": "present",
+            "present": 1,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": "2026-10-03"
+          },
+          "archived": false,
+          "exams": [
+            {
+              "id": "ex_1791037651357",
+              "name": "wssf",
+              "score": 1
+            }
+          ],
+          "assignments": [
+            {
+              "id": "as_1791041758906",
+              "name": "samera",
+              "score": 6
+            }
+          ],
+          "quizzes": []
+        },
+        {
+          "id": "stu_1791028899709",
+          "name": "MO.TARIFI",
+          "studentId": "S-111",
+          "email": "mo.ta@gmail.com",
+          "department": "IT",
+          "attendance": {
+            "status": "late",
+            "present": 1,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": "2026-10-03"
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_1791029090056",
+          "name": "Miladin Ivančević",
+          "studentId": "S-124",
+          "email": "tarifi2004@gmail.com",
+          "department": "CS",
+          "attendance": {
+            "status": "late",
+            "present": 1,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": "2026-10-03"
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_1791040728445",
+          "name": "samera",
+          "studentId": "3261",
+          "email": "m13@gmail.com",
+          "department": "Business",
+          "attendance": {
+            "status": "present",
+            "present": 1,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": "2026-10-03"
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        },
+        {
+          "id": "stu_1791042251426",
+          "name": "Alicia Cortes",
+          "studentId": "32612",
+          "email": "messi@gmail.com",
+          "department": "Business",
+          "attendance": {
+            "status": "late",
+            "present": 1,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": "2026-10-03"
+          },
+          "archived": false,
+          "exams": [],
+          "assignments": [],
+          "quizzes": []
+        }
+      ],
+      "quizzes": [
+        {
+          "id": "quiz_1791028995204",
+          "title": "HTML",
+          "questions": [
+            {
+              "id": "q_1791028995204_irua",
+              "text": "eerqreqrqeqer",
+              "options": [
+                "qwwq",
+                "wwrw",
+                "qrqrwrew"
+              ],
+              "correctOptionIndex": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IYMta7ZBFGw",
+      "firstName": "adel",
+      "lastName": "samer",
+      "username": "adel",
+      "email": "samera@gmail.com",
+      "password": "987",
+      "students": []
+    },
+    {
+      "firstName": "LEONEL",
+      "lastName": "RONALDO",
+      "username": "LEONEL",
+      "email": "tarifi@gmail.com",
+      "password": "987",
+      "students": [
+        {
+          "id": "stu_1791040918971",
+          "name": "messi",
+          "studentId": "3261",
+          "email": "sdgd@gmail.com",
+          "department": "IT",
+          "attendance": {
+            "status": "present",
+            "present": 1,
+            "absent": 0,
+            "late": 0,
+            "lastAttendanceDate": "2026-10-03"
+          },
+          "archived": false,
+          "exams": [
+            {
+              "id": "ex_1791040981419",
+              "name": "messi",
+              "score": 5
+            }
+          ],
+          "assignments": [],
+          "quizzes": []
+        }
+      ],
+      "id": "RFs86RchVD4",
+      "quizzes": [
+        {
+          "id": "quiz_1791041003985",
+          "title": "a",
+          "questions": [
+            {
+              "id": "q_1791041003985_73uv",
+              "text": "adsdf",
+              "options": [
+                "dagd",
+                "gaf",
+                "af"
+              ],
+              "correctOptionIndex": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
