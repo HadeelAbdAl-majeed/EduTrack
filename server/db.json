@@ -2,18 +2,106 @@
   "instructors": [
     {
       "id": "inst_01",
-      "email": "adelhasan@gmail.com",
-      "username": "adel",
+      "email": "sondos@gmail.com",
+      "username": "sondos",
       "password": "password_123",
+      "DISABLED_COMMENT_DO_NOT_EXECUTE": {
+        "note": "This block is fully commented out and will not be executed by the code."
+      },
+      "quizzes": [
+        {
+          "id": "quiz_001",
+          "title": "HTML & CSS Basics",
+          "questions": [
+            {
+              "id": "q_1",
+              "text": "What does HTML stand for?",
+              "options": [
+                "Hyper Text Markup Language",
+                "Home Tool Markup Language",
+                "Hyperlinks and Text Markup Language"
+              ],
+              "correctOptionIndex": 0
+            },
+            {
+              "id": "q_2",
+              "text": "Which property changes the background color?",
+              "options": [
+                "color",
+                "bgcolor",
+                "background-color"
+              ],
+              "correctOptionIndex": 2
+            }
+          ]
+        }
+      ],
       "students": [
         {
+          "id": "stu_001",
+          "name": "Ahmad Khalid",
+          "attendance": {
+            "present": 1,
+            "absent": 0,
+            "late": 1,
+            "lastAttendanceDate": "2026-10-03"
+          },
+          "exams": [
+            {
+              "id": "ex_1",
+              "name": "Midterm",
+              "score": 88
+            },
+            {
+              "id": "ex_2",
+              "name": "Final Exam",
+              "score": 94
+            },
+            {
+              "id": "ex_1790956477122",
+              "name": "html",
+              "score": 90
+            },
+            {
+              "id": "ex_1790960607243",
+              "name": "php",
+              "score": 40
+            }
+          ],
+          "assignments": [
+            {
+              "id": "as_1790968686473",
+              "name": "ES5 Fundamentals",
+              "score": 50
+            },
+            {
+              "id": "as_1790969886979",
+              "name": "DOM project",
+              "score": 88
+            },
+            {
+              "id": "as_1791024460224",
+              "name": "CS Project",
+              "score": 55
+            }
+          ],
+          "quizzes_ref": [
+            {
+              "id": "qz_1",
+              "ref": "quiz_001",
+              "score": 90
+            }
+          ]
+        },
+        {
           "id": "stu_002",
-          "studentId": "S-1002",
           "name": "Sara Majed",
-          "email": "sara@uni.com",
-          "department": "IT",
-          "attendance": "absent",
-          "archived": false,
+          "attendance": {
+            "present": 1,
+            "absent": 0,
+            "late": 1,
+            "lastAttendanceDate": "2026-10-03"
+          },
           "exams": [
             {
               "id": "ex_1",
@@ -38,123 +126,33 @@
               "score": 0
             }
           ],
-          "quizzes": [
+          "quizzes_ref": [
             {
-              "id": "qz_1",
-              "name": "ES6 Syntax",
+              "id": "qz_2",
+              "ref": "quiz_001",
               "score": 65
             }
           ]
-        },
-        {
-          "id": "stu_004",
-          "studentId": "S-1003",
-          "name": "Omar Hassan",
-          "email": "omar@uni.com",
-          "department": "Business",
-          "attendance": "present",
-          "archived": true,
-          "exams": [],
-          "assignments": [],
-          "quizzes": []
-        },
-        {
-          "id": "stu_005",
-          "studentId": "S-1004",
-          "name": "Lina Ahmad",
-          "email": "lina@uni.com",
-          "department": "CS",
-          "attendance": "present",
-          "archived": false,
-          "exams": [],
-          "assignments": [],
-          "quizzes": []
-        },
-        {
-          "id": "stu_006",
-          "studentId": "S-1005",
-          "name": "Yazan Saleh",
-          "email": "yazan@uni.com",
-          "department": "IT",
-          "attendance": "late",
-          "archived": false,
-          "exams": [],
-          "assignments": [],
-          "quizzes": []
-        },
-        {
-          "id": "stu_007",
-          "studentId": "S-1006",
-          "name": "Huda Nasser",
-          "email": "huda@uni.com",
-          "department": "Business",
-          "attendance": "present",
-          "archived": false,
-          "exams": [],
-          "assignments": [],
-          "quizzes": []
-        },
-        {
-          "id": "stu_008",
-          "studentId": "S-1007",
-          "name": "Zaid Omar",
-          "email": "zaid@uni.com",
-          "department": "CS",
-          "attendance": "present",
-          "archived": false,
-          "exams": [],
-          "assignments": [],
-          "quizzes": []
-        },
-        {
-          "id": "stu_1790949718096",
-          "name": "Omar Hassan",
-          "studentId": "S-1066",
-          "email": "omar@uni.com",
-          "department": "CS",
-          "attendance": "present",
-          "archived": false,
-          "exams": [],
-          "assignments": [],
-          "quizzes": []
         }
-      ]
-    },
-    {
-      "id": "inst_02",
-      "email": "admin@email.com",
-      "username": "gdg_admin",
-      "password": "password_456",
-      "students": [
+      ],
+      "announcements": [
         {
-          "id": "stu_003",
-          "studentId": "S-2001",
-          "name": "Omar Tariq",
-          "email": "omar.t@uni.com",
-          "department": "IT",
-          "attendance": "present",
-          "archived": false,
-          "exams": [
-            {
-              "id": "ex_1",
-              "name": "Midterm Exam",
-              "score": 95
-            }
-          ],
-          "assignments": [
-            {
-              "id": "as_1",
-              "name": "Figma Wireframing",
-              "score": 90
-            }
-          ],
-          "quizzes": [
-            {
-              "id": "qz_1",
-              "name": "Component Lifecycle",
-              "score": 100
-            }
-          ]
+          "id": "ann_1790951985485",
+          "title": "bleach",
+          "body": "aizen",
+          "timestamp": "10/2/2026, 5:39:45 PM"
+        },
+        {
+          "id": "ann_1790951164679",
+          "title": "project one",
+          "body": "memo",
+          "timestamp": "10/2/2026, 5:26:04 PM"
+        },
+        {
+          "id": "ann_1790951050253",
+          "title": "Quiz 1 Cancellation",
+          "body": "Class is postponed",
+          "timestamp": "10/2/2026, 5:24:10 PM"
         }
       ]
     }
