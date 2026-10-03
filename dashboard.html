@@ -100,20 +100,70 @@
 
 
     <!-- ================= MAIN CONTENT ================= -->
+<main class="dashboard-content">
 
-    <main class="dashboard-content">
+    <!-- Welcome Header -->
+    <div class="page-head">
+        <div>
+            <p class="welcome-label">WELCOME BACK</p>
+            <h1>Hello, <span id="welcome-name">Instructor</span> 👋</h1>
+            <p class="welcome-sub">Here's a quick overview of your classroom.</p>
+        </div>
+    </div>
 
-        <h1>
-            Instructor Dashboard
-        </h1>
+    <!-- Stats Grid -->
+    <section class="stats-grid">
 
-    </main>
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <h3 class="stat-title">Students</h3>
+            <p class="stat-value" id="stat-students">0</p>
+            <p class="stat-meta" id="stat-students-meta">0 active · 0 archived</p>
+        </div>
 
+        <div class="stat-card">
+            <div class="stat-icon">📝</div>
+            <h3 class="stat-title">Exams</h3>
+            <p class="stat-value" id="stat-exams">0</p>
+            <p class="stat-meta" id="stat-exams-meta">Average: 0</p>
+        </div>
 
+        <div class="stat-card">
+            <div class="stat-icon">❓</div>
+            <h3 class="stat-title">Quizzes</h3>
+            <p class="stat-value" id="stat-quizzes">0</p>
+            <p class="stat-meta" id="stat-quizzes-meta">Average: 0</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📄</div>
+            <h3 class="stat-title">Assignments</h3>
+            <p class="stat-value" id="stat-assignments">0</p>
+            <p class="stat-meta" id="stat-assignments-meta">Average: 0</p>
+        </div>
+
+    </section>
+
+    <!-- Chart Section -->
+    <section class="chart-section">
+        <div class="chart-card">
+            <div class="chart-head">
+                <h2>Students by Department</h2>
+                <p class="chart-sub">Distribution of your active students</p>
+            </div>
+            <div class="chart-body">
+                <canvas id="departmentChart"></canvas>
+                <p class="chart-empty" id="chart-empty" hidden>No students to display.</p>
+            </div>
+        </div>
+    </section>
+
+</main>
     <!-- ================= JAVASCRIPT ================= -->
-
-    <script src="js/DASHBORD.js"></script>
-    <script src="js/dark.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="js/DASHBORD.js"></script>
+<script src="js/dark.js"></script>
+<script src="js/dashboard-stats.js"></script>
 
 </body>
 
