@@ -143,3 +143,21 @@ body.dark-mode {
     --border-color: #444444;
     --primary-color: #a8324a;
 }
+body.dark-mode .nav-icon {
+    background: transparent;
+    border-color: var(--text-main);
+}
+
+body.dark-mode .nav-icon::after {
+    background: var(--text-main);
+}
+
+body.dark-mode .sidebar-links a.active .nav-icon,
+body.dark-mode .sidebar a.current .nav-icon {
+    border-color: #fff;
+}
+
+body.dark-mode .sidebar-links a.active .nav-icon::after,
+body.dark-mode .sidebar a.current .nav-icon::after {
+    background: #fff;
+}

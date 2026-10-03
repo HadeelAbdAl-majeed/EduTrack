@@ -1,65 +1,338 @@
-/* 
-   ملف dashboard.css
-   مخصص لصفحة لوحة التحكم (dashboard.html)
-   ملاحظة: بناءً على طلبك، تم تنسيق العناصر المتوفرة في الـ HTML الحالي فقط (العنوان وزر Sign Out).
-*/
+/* ================= DASHBOARD ================= */
 
 body {
-    padding: 4rem 5%;
-    /* لون الخلفية مطابق للتصميم */
-    background-color: var(--bg-color); 
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+
+/* ================= NAVBAR ================= */
+
+.dashboard-navbar {
+    height: 75px;
+    width: 100%;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+
+/* ================= BURGER BUTTON ================= */
+
+.menu-btn {
+    background: transparent;
+    color: var(--text-main);
+    border: none;
+
+    font-size: 28px;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    line-height: 1;
+}
+
+
+/* ================= UNIVERSITY BRAND ================= */
+
+.university-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 20px;
+
+    color: var(--text-main);
+    font-weight: bold;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+}
+
+.university-brand img {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* ================= PROFILE ================= */
+
+.profile-container {
+    margin-left: auto;
+    position: relative;
+}
+
+.profile-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.profile-btn img {
+    width: 45px;
+    height: 45px;
+
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+
+/* ================= PROFILE MENU ================= */
+
+.profile-menu {
+    display: none;
+
+    position: absolute;
+    top: 55px;
+    right: 0;
+
+    width: 170px;
+
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+
+    padding: 10px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-menu button {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.profile-menu.open {
+    display: block;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    position: fixed;
+
+    top: 75px;
+    left: -260px;
+
+    width: 260px;
+    height: calc(100vh - 75px);
+
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+
+    padding: 30px 20px;
+
+    transition: left 0.3s ease;
+
+    z-index: 999;
+}
+
+
+/* لما تكون مفتوحة */
+
+.sidebar.open {
+    left: 0;
+}
+
+
+/* ================= SIDEBAR LINKS ================= */
+
+.sidebar-links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    gap: 8px;
 }
 
-h1 {
-    font-size: 2.2rem;
-    /* في التصميم، لون عنوان الداشبورد داكن (أسود/رمادي غامق) وليس عنابي */
-    color: var(--text-main); 
-    margin-bottom: 2rem;
-}
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-/* تنسيق زر تسجيل الخروج ليكون واضحاً ومتناسقاً مع ألوان المنصة */
-#logoutBtn {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    padding: 10px 24px;
+    padding: 14px 18px;
+
+    color: var(--text-main);
+
     border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+    transition: 0.2s;
 }
 
-#logoutBtn:hover {
+.sidebar-links a:hover {
+    background-color: var(--bg-color);
+}
+
+.sidebar-links a.active {
     background-color: var(--primary-color);
     color: white;
 }
 
+
+/* ================= SIDEBAR ICON (النقاط) ================= */
+
+.nav-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    border: 1.5px solid var(--primary-color);
+    background: #fff;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.nav-icon::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+/* لما يكون الرابط نشط: عكس الألوان */
+.sidebar-links a.active .nav-icon {
+    border-color: #fff;
+    background: transparent;
+}
+
+.sidebar-links a.active .nav-icon::after {
+    background: #fff;
+}
+
+
+/* ================= MAIN CONTENT ================= */
+
+.dashboard-content {
+    margin-top: 75px;
+
+    padding: 40px;
+
+    min-height: calc(100vh - 75px);
+}
+
+.dashboard-content h1 {
+    color: var(--text-main);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 768px) {
-    body {
-        padding: 2.5rem 5%;
+
+    /* ---- Navbar ---- */
+    .dashboard-navbar {
+        padding: 0 18px;
     }
-    h1 {
-        font-size: 1.7rem;
-        margin-bottom: 1.5rem;
+
+    .menu-btn {
+        font-size: 24px;
+        padding: 4px 8px;
+    }
+
+    .university-brand {
+        margin-left: 12px;
+        font-size: 1rem;
+        gap: 8px;
+    }
+
+    .university-brand img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .profile-btn img {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* ---- Sidebar ---- */
+    .sidebar {
+        width: 240px;
+        left: -240px;
+        padding: 24px 16px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    /* ---- Content ---- */
+    .dashboard-content {
+        padding: 24px 18px;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 1.5rem 1rem;
-        align-items: stretch;
+
+    /* ---- Navbar ---- */
+    .dashboard-navbar {
+        height: 65px;
+        padding: 0 14px;
     }
-    h1 {
-        font-size: 1.4rem;
-        text-align: center;
+
+    .menu-btn {
+        font-size: 22px;
+        padding: 3px 6px;
     }
-    #logoutBtn {
-        width: 100%;
-        padding: 12px;
+
+    .university-brand {
+        margin-left: 8px;
         font-size: 0.95rem;
+        gap: 6px;
+    }
+
+    .university-brand img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .profile-btn img {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* ---- Sidebar ---- */
+    .sidebar {
+        top: 65px;
+        width: 220px;
+        left: -220px;
+        height: calc(100vh - 65px);
+        padding: 20px 14px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar-links a {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+
+    /* ---- Content ---- */
+    .dashboard-content {
+        margin-top: 65px;
+        padding: 20px 14px;
+        min-height: calc(100vh - 65px);
+    }
+
+    .dashboard-content h1 {
+        font-size: 1.5rem;
+    }
+
+    /* ---- Profile menu ---- */
+    .profile-menu {
+        width: 150px;
+        top: 50px;
     }
 }
